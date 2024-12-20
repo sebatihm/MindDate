@@ -19,6 +19,14 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            
+            $table->date('birth_date');
+            $table->enum('gender',['man','woman','non-binary'])->default('non-binary');
+            $table->enum('sexual_orientation', ['heterosexual', 'homosexual', 'bisexual','pansexual','lesbian', 'queer']);
+            $table->enum('relationship_type', ['monogamous', 'polyamourus', 'open relationship', 'casual']);
+            $table->longText('description');
+            
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

@@ -45,4 +45,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    //Relaciones muchos a muchos
+    public function hobby(){
+        return $this->belongsToMany(Hobby::class);
+    }
+
+    public function interest(){
+        return $this->belongsToMany(Interest::class);
+    }
+
+    public function RelationshipGoal(){
+        return $this->belongsToMany(RelationshipGoal::class);
+    }
 }
