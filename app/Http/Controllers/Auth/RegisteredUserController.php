@@ -34,13 +34,32 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'gender' => ['required', 'in:man,woman,non-binary'],
+            'sexual_orientation' => ['required', 'in:heterosexual,homosexual,bisexual,pansexual,lesbian,queer'],
+            'relationship_type' => ['required', 'in:monogamous,polyamourus,open relationship,casual'],
+            'description' => 'nullable|string',
+            'birth_date' => 'required|date'
+
         ]);
+
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'birth_date' => $request->birth_date,
+            'gender' => $request->gender,
+            'sexual_orientation' => $request->sexual_orientation,
+            'relationship_type' => $request->relationship_type,
+            'description' => $request->description,
+            
         ]);
+        
 
         event(new Registered($user));
 

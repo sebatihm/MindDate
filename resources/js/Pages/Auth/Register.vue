@@ -11,6 +11,11 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+    gender: '',
+    sexual_orientation : '',
+    relationship_type: '',
+    description: '',
+    birth_date: ''
 });
 
 const submit = () => {
@@ -40,6 +45,57 @@ const submit = () => {
 
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
+
+            <!-- Campos tinder -->
+            <div class="mt-4">
+                <InputLabel for="gender" value="Gender" />
+
+                <TextInput
+                    id="gender"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.gender"
+                    required
+                    autocomplete="man"
+                />
+
+                <InputError class="mt-2" :message="form.errors.gender" />
+            </div>
+
+            <!-- Campos tinder -->
+            <div class="mt-4">
+                <InputLabel for="sexual_orientation" value="Sexual orientation" />
+
+                <TextInput
+                    id="sexual_orientation"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.sexual_orientation"
+                    required
+                    autocomplete="heterosexual"
+                />
+
+                <InputError class="mt-2" :message="form.errors.sexual_orientation" />
+            </div>
+
+            <!-- Campos tinder -->
+            <div class="mt-4">
+                <InputLabel for="relationship_type" value="Relationship Type" />
+
+                <TextInput
+                    id="relationship_type"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.relationship_type"
+                    required
+                    autocomplete="monogamous"
+                />
+
+                <InputError class="mt-2" :message="form.errors.relationship_type" />
+            </div>
+
+        
+
 
             <div class="mt-4">
                 <InputLabel for="email" value="Email" />
@@ -91,6 +147,40 @@ const submit = () => {
                     :message="form.errors.password_confirmation"
                 />
             </div>
+
+
+            <!-- Campos tinder -->
+            <div class="mt-4">
+                <InputLabel for="description" value="Description" />
+
+                <TextInput
+                    id="description"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.description"
+                    required
+                    autocomplete="username"
+                />
+
+                <InputError class="mt-2" :message="form.errors.description" />
+            </div>
+
+             <!-- Campos tinder -->
+            <div class="mt-4">
+                <InputLabel for="birth_date" value="Date of Birth" />
+
+                <TextInput
+                    id="birth_date"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.birth_date"
+                    required
+                    autocomplete="username"
+                />
+
+                <InputError class="mt-2" :message="form.errors.birth_date" />
+            </div>
+
 
             <div class="mt-4 flex items-center justify-end">
                 <Link
