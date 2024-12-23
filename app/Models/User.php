@@ -64,4 +64,8 @@ class User extends Authenticatable
     public function RelationshipGoal(){
         return $this->belongsToMany(RelationshipGoal::class);
     }
+
+    public function media(){
+        return $this->hasMany(Media::class);
+    }
 }
